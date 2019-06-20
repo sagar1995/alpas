@@ -133,7 +133,7 @@
               
                 
                 <div class="col-md-12">
-                  <h3> Recent Products!!</h3>
+                  <h3> Features Products!!</h3>
                   <div class="row">
                     <?php
                     $sql = "SELECT * FROM product
@@ -146,7 +146,7 @@
                     ?>
                     <div class="col-md-4 mb-5">
                       <div class="card h-100">
-                        <img class="card-img-top" style='height:300px;width:300px;' src="uploads/<?php echo $data['file']; ?>">
+                        <img class="card-img-top" src="uploads/<?php echo $data['file']; ?>">
                         <div class="card-body">
                           <h4 class="card-title">
                           <?php echo $data["title"];   ?>

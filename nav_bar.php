@@ -1,8 +1,5 @@
 <?php
 session_start();
-?>
-
-<?php 
 $name=$_SESSION['username'];
 $user_id=$_SESSION['id'];
 ?>
