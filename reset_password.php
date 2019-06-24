@@ -12,6 +12,8 @@
 		<link rel="stylesheet" type="text/css" href="css/select2.min.css">
 		<link rel="stylesheet" type="text/css" href="css/util.css">
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="jquery/jquery-3.2.1.min.js"></script>
+
 	</head>
 	<style>
 		h2 {
@@ -51,17 +53,19 @@
 				</div>
 			</div>
 			<script>
-				document.getElementById("confirm").addEventListener("focusout", myFunction);
-				function myFunction() {
-					var password = document.getElementById("password").value;
-					var confirm = document.getElementById("confirm").value;
-					
-					if(password!=confirm) {
-					alert("password are not same");
-					}
-				}
+				$(document).ready(function(){
+					$("#confirm").focusout(function(){
+						var password = $("#password").val();
+						var confirm = $("#confirm").val();
+
+						if(password!=confirm) {
+							alert("Password and confirm are not same! Please Check again");
+								$("#password").val("");
+	                			$("#confirm").val("");
+						}
+					});
+				});
 			</script>
-			<script src="jquery/jquery-3.2.1.min.js"></script>
 			<script src="js/popper.js"></script>
 			<script src="js/bootstrap.min.js"></script>
 			<script src="js/select2.min.js"></script>

@@ -19,9 +19,7 @@
   .custom-container {
   margin-top: 4rem! important;
   }
-  .footer {
-  margin-top: 4rem! important;
-  }
+  
   </style>
   <body>
     <div class="container custom-container">
@@ -74,7 +72,7 @@
                         echo "<td>". $data["title"]."</td>";
                         
                         echo "<td>". $data["o_quantity"]."</td>";
-                        echo "<td><img style='height:100px;width:100px;' src=uploads/". $data['file']."></td>";
+                        echo "<td><img style='height:auto;width:auto;' src=uploads/". $data['file']."></td>";
                         echo "<td>". $data["total_price"]."</td>"; ?>
                         <td class='text-right'>
                           <form action="deletemyorder.php" method="POST">

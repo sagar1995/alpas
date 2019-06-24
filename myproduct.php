@@ -39,8 +39,8 @@
 				while ($data = $result->fetch_assoc()) { ?>
 				
 				<div class="col-sm-4 custom-bottom-margin">
-					<div class="card">
-						<img style='height:150px;width:120px;' src="uploads/<?php echo $data['file'];?>" class="card-img-top">
+					<div class="card" style='height:auto; width:200px;'>
+						<img src="uploads/<?php echo $data['file'];?>" class="card-img-top">
 						<div class="card-body">
 							<h3 class="card-title">Name:  <?php echo $data['title'];?></h3>
 							<h5>Price: <?php echo $data['sale_price'];?></h5>

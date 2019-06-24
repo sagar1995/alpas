@@ -56,8 +56,8 @@
           </div>
         </div>
         <div class="col-lg-8">
-          <div class="card mt-4">
-            <img class="card-img-top img-fluid" style ='height:200px; width:150px;' src="uploads/<?php echo $data['file']; ?>">
+          <div class="card mt-4" style ='height:auto; width:100%;'>
+            <img class="card-img-top img-fluid" src="uploads/<?php echo $data['file']; ?>">
             <div class="card-body">
               <h3 class="card-title"> Product Name: <?php echo $data["title"];?>
               </h3>

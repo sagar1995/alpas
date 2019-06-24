@@ -18,6 +18,7 @@
 			.custom-container {
 				margin-top: 5rem! important;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -25,7 +26,7 @@
 			<?php
 				require("nav_bar.php");
 				require("success.php");
-      			require("error.php");
+				require("error.php");
 			?>
 			<h1 align="center">Product List </h1>
 			<div class="row">
@@ -37,15 +38,14 @@
 				$sql = "SELECT id,title,description,sale_price,file FROM product WHERE user_id!=$user_id";
 				$result = $conn->query($sql);
 				if ($result->num_rows > 0) {
-					while($data = $result->fetch_assoc()) { ?>
-					<div class="col-sm-4 custom-bottom-margin">
-						<div class="card" style="width:auto; height:100%;">
-							<img src="uploads/<?php echo $data['file'];?>" class="card-img-top">
-							<div class="card-body">
-								<h3 class="card-title">Name:  <?php echo $data['title'];?></h3>
-								<h5>Price: <?php echo $data['sale_price'];?></h5>
-								<p class="card-text"><?php echo $data['description'];?></p>
-							</div>
+				while($data = $result->fetch_assoc()) { ?>
+				<div class="col-sm-4 custom-bottom-margin">
+					<div class="card" style="width:100%; height:100%;">
+						<img src="uploads/<?php echo $data['file'];?>" class="card-img-top">
+						<div class="card-body">
+							<h3 class="card-title">Name:  <?php echo $data['title'];?></h3>
+							<h5>Price: <?php echo $data['sale_price'];?></h5>
+							<p class="card-text"><?php echo $data['description'];?></p>
 							<div class="card-footer">
 								<form action="viewitem.php?id=<?php echo $data['id']; ?>" method="POST">
 									<input type="hidden" name="view_btn">
@@ -55,17 +55,18 @@
 							</div>
 						</div>
 					</div>
-					<?php
-					} 
+				</div>
+				<?php
+				}
 				}
 				else
 				{
-					echo "0 results";
+				echo "0 results";
 				}
 				$conn->close();
 				?>
 			</div>
-		</div>
+		</div> <br> <br>
 		<?php require("footer.php") ?>
 		<script src="jquery/jquery.min.js"></script>
 		<script src="js/bootstrap.bundle.min.js"></script>

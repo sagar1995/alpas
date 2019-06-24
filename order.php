@@ -14,6 +14,9 @@
 		<!-- CSS Files -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/myfrontend.css" rel="stylesheet">
+
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+
 	</head>
 	<body>
 		<style>
@@ -59,7 +62,7 @@
 								<input type="hidden" name="product_quantity" id="product_quantity" value="<?php echo $data['quantity']; ?>">
 								<div class="form-group">
 									<label for="quantity">Quantity</label>
-									<input type="number" class="form-control" id="order_quantity" onchange="myFunction();" placeholder="Enter how many item you want?" name="order_quantity" required>
+									<input type="number" class="form-control" id="order_quantity" placeholder="Enter how many item you want?" name="order_quantity" required>
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
@@ -75,24 +78,27 @@
 		</div>
 		<?php require("footer.php"); ?>
 		<script>
-		function myFunction() {
-			var order_quantity = document.getElementById("order_quantity").value;
-			var actual_price = document.getElementById("sale_price").value;
-			var product_quantity = document.getElementById("product_quantity").value;
-			var totalPrice = order_quantity * actual_price;
-			document.getElementById("total_price").value = totalPrice;
-			console.log(order_quantity);
-			console.log(product_quantity);
-			
-			if(parseInt(order_quantity) > parseInt(product_quantity)) {
-				alert("You have entered max value!");
-				document.getElementById("order_quantity").value = '';
-				document.getElementById("total_price").value = '';
-			} else if(order_quantity == 0){
-				alert("NICE TRY BITCH !! you can't submit empty value");
-				document.getElementById("total_price").value = 0;
-			}   
-		}
+		
+		$(document).ready(function(){
+			$("#order_quantity").focusout(function(){
+				var order_quantity = $("#order_quantity").val();
+				var actual_price = $("#sale_price").val();
+				var product_quantity = $("#product_quantity").val();
+				var totalPrice = order_quantity * actual_price;
+				$("#total_price").val(totalPrice);
+
+				if(parseInt(order_quantity) > parseInt(product_quantity)) {
+					alert("You can't have more value than in stock!");
+					$("#order_quantity").val('1');
+					$("#total_price").val(actual_price);
+
+				} else if(order_quantity == 0) {
+					alert("Sorry! you can't submit empty value");
+					$("#order_quantity").val('1');
+					$("#total_price").val(actual_price);
+				}
+			});
+		});
 		</script>
 		
 	</body>

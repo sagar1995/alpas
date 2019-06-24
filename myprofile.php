@@ -25,6 +25,7 @@
     <?php
     require("nav_bar.php");
     ?>
+    
     <div class="container">
       <div class="content">
         <?php

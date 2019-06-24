@@ -9,11 +9,12 @@
 		else {
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-			$query = mysqli_query($conn, "SELECT * FROM user WHERE password='$password' AND username='$username'");
+			$sql = "SELECT * FROM user WHERE password='$password' AND username='$username'";
+			$query = mysqli_query($conn, $sql);
 			
 			$rows = mysqli_num_rows($query);
 			if($rows == 1) {
-				while($row =mysqli_fetch_assoc($query)){
+				while($row = mysqli_fetch_assoc($query)){
 					$_SESSION["username"] = $row['username'];
 					$_SESSION["id"] = $row['id'];
 				}

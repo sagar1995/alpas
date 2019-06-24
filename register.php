@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
+    <script src="jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
   </head>
   <body>
     
@@ -74,23 +76,22 @@
         </div>
         
         <script>
-        function myTry() {
-        var password = document.getElementById("password").value.trim();
-        var confirm = document.getElementById("confirm").value.trim();
-        
-        if(password!=confirm) {
-        alert("password are not same");
-        return false;
-        }
-        else {
-        document.getElementById("form").submit();
-        }
-        }
+          $(document).ready(function(){
+            $("#confirm").focusout(function(){
+              var password = $("#password").val();
+              var confirm = $("#confirm").val();
+
+              if(password!=confirm){
+                alert("Both don't match");
+                $("#password").val("");
+                $("#confirm").val("");
+
+              }
+            });
+          });
         </script>
         
-        <!--===============================================================================================-->
-        <script src="jquery/jquery-3.2.1.min.js"></script>
-        <!--===============================================================================================-->
+        
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
